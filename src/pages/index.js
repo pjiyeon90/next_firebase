@@ -27,8 +27,14 @@ export default function Home() {
     const token = await getClientToken();
 
     console.log(token);
-  }
 
+    //비동기 방식 작동, 사용자의 상태 체크 가능
+  //   Notification.requestPermission() 
+  //   .then(permission =>{
+  //     console.log(permission,'사용자 권한 상태....')
+  //   })
+  // }
+  }
  
   return (
     <>
@@ -40,7 +46,7 @@ export default function Home() {
 
       <article>
         <h2>구독하기(FCM)</h2>
-        <button >구독하기</button>
+        <button onClick={clientToken}>구독하기</button>
       </article>
 
       

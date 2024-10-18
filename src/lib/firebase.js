@@ -28,7 +28,7 @@ if(typeof window !=='undefined' && typeof window.navigator  !== 'undefined'){
 }
 
 export const getClientToken = async ()=>{
-  const key = 'TibJzb1KvNkZeEFvNmdC4e2Ldg2hY9kgpnTWRVh9P31SXIXvfDXwr70PLoGoTXFGohJEiJ39pz5ciHzE3v_W8';
+  const key = 'BLTibJzb1KvNkZeEFvNmdC4e2Ldg2hY9kgpnTWRVh9P31SXIXvfDXwr70PLoGoTXFGohJEiJ39pz5ciHzE3v_W8';
   const currentToken = await getToken(messaging, { vapidKey: key })
   return currentToken;
 }
