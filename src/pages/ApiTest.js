@@ -45,7 +45,7 @@ export async function getServerSideProps(){
   //   return {props:{data:a}}
   // })
 
-    const res = await fetch('http://localhost:3000/api/hello')
+    const res = await fetch('http://localhost:3001/api/hello')
     const data = await res.json(); //문자로 넘어오기 때문에 object 형태로 변환해서 받는다.
 
     return {props:{data}}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Error from "./_error";
+import { getClientToken } from "@/lib/firebase";
 
 
 export default function Home() {
@@ -20,6 +21,14 @@ export default function Home() {
 };
 
   if (error) return <Error statusCode = {error}/> 
+
+  //fcm 토큰 발행
+  async function clientToken(){
+    const token = await getClientToken();
+
+    console.log(token);
+  }
+
  
   return (
     <>
@@ -28,6 +37,12 @@ export default function Home() {
        main page....<br/>
        {test}<br/>
        <img src="peng.jpg" onClick={(err)=>setTest(2000)}/>
+
+      <article>
+        <h2>구독하기(FCM)</h2>
+        <button >구독하기</button>
+      </article>
+
       
     </>
   )

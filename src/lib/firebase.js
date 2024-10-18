@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
+import { getMessaging, getToken } from "firebase/messaging";
 
 
 const firebaseConfig = {
@@ -17,3 +18,17 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const storage  = getStorage(app);
 export const db = getFirestore(app);
+
+
+let messaging;
+//네비게이터가 언디파인드 타입이 아닐때
+if(typeof window !=='undefined' && typeof window.navigator  !== 'undefined'){
+  messaging = getMessaging();
+
+}
+
+export const getClientToken = async ()=>{
+  const key = 'TibJzb1KvNkZeEFvNmdC4e2Ldg2hY9kgpnTWRVh9P31SXIXvfDXwr70PLoGoTXFGohJEiJ39pz5ciHzE3v_W8';
+  const currentToken = await getToken(messaging, { vapidKey: key })
+  return currentToken;
+}
