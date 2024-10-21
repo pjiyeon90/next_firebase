@@ -8,6 +8,15 @@ export default function Home() {
   const [test, setTest] = useState(1000);
   const [error, setError] = useState();
 
+
+  useEffect(()=>{
+    
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/firebase-messaging-sw.js', { scope: "/firebase-cloud-messaging-push-scope" });
+    }
+  
+  },[])
+
   function err(){
     // fetch('/api/hello')
     // .then(res=> res.json())
@@ -55,12 +64,7 @@ export default function Home() {
   };
   
 
-  useEffect(()=>{
-    
-      console.log('sdfsdfsdf=============')
-      window.navigator.serviceWorker.register('/firebase-messaging-sw.js', { scope: "/firebase-cloud-messaging-push-scope" });
-    
-  },[])
+
 
 
 
