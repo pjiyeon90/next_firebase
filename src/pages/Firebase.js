@@ -98,8 +98,8 @@ const Firebase = () => {
 
       <ul className='firebase-list'>
       {
-        imgUrl.map((item)=>
-          <li>
+        imgUrl.map((item,k)=>
+          <li key={k}>
             <figure><img src={item.url}/></figure>
             <button onClick={()=>delImage(item.name)}>삭제</button>
           </li>
@@ -264,8 +264,8 @@ export function Firestore({setLoading}){
       <h3>리스트</h3>
       <ul className='listwrap'>
         {
-          data.map((item)=>
-            <li key = {item.id}>
+          data.map((item,k)=>
+            <li key={k}>
                <img src={item.url} width={80} height={80} alt={item.name}/>
                <div>
                <span>{item.name}</span>

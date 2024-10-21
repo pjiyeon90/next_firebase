@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Error from "./_error";
 import { getClientToken } from "@/lib/firebase";
 import axios from "axios";
@@ -51,9 +51,18 @@ export default function Home() {
      token
     }
     axios.post('/api/fcm',msg)
-
     
   };
+  
+
+  useEffect(()=>{
+    
+      console.log('sdfsdfsdf=============')
+      window.navigator.serviceWorker.register('/firebase-messaging-sw.js', { scope: "/firebase-cloud-messaging-push-scope" });
+    
+  },[])
+
+
 
  
   return (
